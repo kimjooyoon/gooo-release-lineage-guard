@@ -1,0 +1,79 @@
+{
+  "schema": "gooo/release-lineage-guard/generated-manifest/v1",
+  "source": "semantic/release-lineage.gooo",
+  "cases": [
+    {
+      "case_id": "closed-annotated-draft",
+      "class": "CLOSED",
+      "decision_file": "generated/decisions/closed-annotated-draft.json",
+      "dossier_file": "generated/dossiers/closed-annotated-draft.md"
+    },
+    {
+      "case_id": "closed-patch-advance",
+      "class": "CLOSED",
+      "decision_file": "generated/decisions/closed-patch-advance.json",
+      "dossier_file": "generated/dossiers/closed-patch-advance.md"
+    },
+    {
+      "case_id": "closed-digest-exact",
+      "class": "CLOSED",
+      "decision_file": "generated/decisions/closed-digest-exact.json",
+      "dossier_file": "generated/dossiers/closed-digest-exact.md"
+    },
+    {
+      "case_id": "closed-policy-prechecked",
+      "class": "CLOSED",
+      "decision_file": "generated/decisions/closed-policy-prechecked.json",
+      "dossier_file": "generated/dossiers/closed-policy-prechecked.md"
+    },
+    {
+      "case_id": "unknown-policy-missing",
+      "class": "UNKNOWN",
+      "decision_file": "generated/decisions/unknown-policy-missing.json",
+      "dossier_file": "generated/dossiers/unknown-policy-missing.md"
+    },
+    {
+      "case_id": "unknown-remote-snapshot-missing",
+      "class": "UNKNOWN",
+      "decision_file": "generated/decisions/unknown-remote-snapshot-missing.json",
+      "dossier_file": "generated/dossiers/unknown-remote-snapshot-missing.md"
+    },
+    {
+      "case_id": "unknown-lineage-identity-missing",
+      "class": "UNKNOWN",
+      "decision_file": "generated/decisions/unknown-lineage-identity-missing.json",
+      "dossier_file": "generated/dossiers/unknown-lineage-identity-missing.md"
+    },
+    {
+      "case_id": "unknown-external-utility",
+      "class": "UNKNOWN",
+      "decision_file": "generated/decisions/unknown-external-utility.json",
+      "dossier_file": "generated/dossiers/unknown-external-utility.md"
+    },
+    {
+      "case_id": "refuted-release-delete",
+      "class": "REFUTED",
+      "decision_file": "generated/decisions/refuted-release-delete.json",
+      "dossier_file": "generated/dossiers/refuted-release-delete.md"
+    },
+    {
+      "case_id": "refuted-tag-retag",
+      "class": "REFUTED",
+      "decision_file": "generated/decisions/refuted-tag-retag.json",
+      "dossier_file": "generated/dossiers/refuted-tag-retag.md"
+    },
+    {
+      "case_id": "refuted-published-asset-replace",
+      "class": "REFUTED",
+      "decision_file": "generated/decisions/refuted-published-asset-replace.json",
+      "dossier_file": "generated/dossiers/refuted-published-asset-replace.md"
+    },
+    {
+      "case_id": "refuted-configured-after-publish",
+      "class": "REFUTED",
+      "decision_file": "generated/decisions/refuted-configured-after-publish.json",
+      "dossier_file": "generated/dossiers/refuted-configured-after-publish.md"
+    }
+  ],
+  "ci_command_descriptor": "generated/ci/plan-gate-command.json"
+}

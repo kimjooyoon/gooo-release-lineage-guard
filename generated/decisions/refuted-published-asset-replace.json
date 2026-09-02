@@ -1,0 +1,162 @@
+{
+  "schema": "gooo/release-lineage-guard/decision/v1",
+  "case_id": "refuted-published-asset-replace",
+  "plan_id": "plan-refuted-published-asset-replace",
+  "state": "REFUTED",
+  "terminal": "FIXED_POINT",
+  "action": "PRESERVE_AND_ADVANCE",
+  "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version",
+  "preservation_rule": {
+    "on_refuted": "retain_failed_public_artifact_as_OPERATIONAL_REFUTED",
+    "public_history": "preserve",
+    "failed_artifact": "retain",
+    "never_delete": true
+  },
+  "version_advance": {
+    "from_version": "v0.1.0",
+    "to_version": "v0.1.1",
+    "reason": "failed public output is preserved; a new patch version is the only forward path",
+    "required": true
+  },
+  "violations": [
+    {
+      "operation_id": "op-refuted-asset-02",
+      "kind": "published_asset_replace",
+      "reason": "published assets are immutable"
+    },
+    {
+      "kind": "VERSION_NOT_NEXT_PATCH",
+      "reason": "requested version is not the next unused patch version"
+    },
+    {
+      "kind": "SAME_VERSION_REUSE",
+      "reason": "same version cannot be recreated after a public artifact exists"
+    }
+  ],
+  "activities": [
+    {
+      "id": "01-lineage-identity",
+      "meta_name": "BindLineageIdentity",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "02-policy-precheck",
+      "meta_name": "PrecheckImmutablePolicy",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "03-artifact-identity",
+      "meta_name": "BindPublicArtifact",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "04-plan-identity",
+      "meta_name": "BindMutationPlan",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "05-operation-allowlist",
+      "meta_name": "EvaluateProposedOperations",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "06-version-advance",
+      "meta_name": "RequireNextPatchVersion",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "07-draft-first",
+      "meta_name": "RequireDraftFirstRelease",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "08-digest-upload",
+      "meta_name": "RequireExactMainDigest",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "09-failure-preservation",
+      "meta_name": "PreserveOperationalRefuted",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "10-refuted-precedence",
+      "meta_name": "EnforceRefutedPrecedence",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "11-unknown-causality",
+      "meta_name": "PreserveUnknownFields",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "12-authority-zero",
+      "meta_name": "EnforceReadOnlyRuntime",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    }
+  ],
+  "runtime": {
+    "repository_writes": 0,
+    "local_test_executions": 0,
+    "cross_project_required_gates": 0,
+    "github_mutations": 0,
+    "read_only_snapshot": true,
+    "wall_ms": null,
+    "peak_rss_kib": null
+  },
+  "source": "semantic/release-lineage.gooo",
+  "snapshot": "fixtures/cases/11-refuted-published-asset-replace.json",
+  "lineage": {
+    "repository": "kimjooyoon/gooo-release-lineage-guard",
+    "stream": "public-release",
+    "lineage_id": "lineage-main-public-v1",
+    "current_version": "v0.1.0",
+    "current_tag": "v0.1.0",
+    "current_commit": "1111111111111111111111111111111111111111"
+  },
+  "artifacts": [
+    {
+      "name": "gooo-release-lineage-guard-v0.1.0.tar.gz",
+      "role": "main",
+      "sha256": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+      "main": true,
+      "size": 1317
+    }
+  ]
+}

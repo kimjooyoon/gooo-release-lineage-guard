@@ -1,0 +1,22 @@
+{
+  "schema": "gooo/release-lineage-guard/ci-command/v1",
+  "command": "go run ./cmd/gooo-release-lineage-guard conformance --source semantic/release-lineage.gooo --fixtures fixtures/cases",
+  "source": "semantic/release-lineage.gooo",
+  "fixture_directory": "fixtures/cases",
+  "requires_state": "CLOSED",
+  "requires_terminal": "FIXED_POINT",
+  "read_only": true,
+  "forbidden_operations": [
+    "failed_run_delete",
+    "published_asset_replace",
+    "release_delete",
+    "same_version_recreate",
+    "tag_delete",
+    "tag_retag"
+  ],
+  "outputs": [
+    "machine decision JSON",
+    "human dossier Markdown",
+    "generated/ci/plan-gate-command.json"
+  ]
+}

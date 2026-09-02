@@ -1,0 +1,189 @@
+{
+  "schema": "gooo/release-lineage-guard/decision/v1",
+  "case_id": "refuted-configured-after-publish",
+  "plan_id": "plan-refuted-configured-after-publish",
+  "state": "REFUTED",
+  "terminal": "FIXED_POINT",
+  "action": "PRESERVE_AND_ADVANCE",
+  "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version",
+  "preservation_rule": {
+    "on_refuted": "retain_failed_public_artifact_as_OPERATIONAL_REFUTED",
+    "public_history": "preserve",
+    "failed_artifact": "retain",
+    "never_delete": true
+  },
+  "version_advance": {
+    "from_version": "v0.1.0",
+    "to_version": "v0.1.1",
+    "reason": "failed public output is preserved; a new patch version is the only forward path",
+    "required": true
+  },
+  "unknown": [
+    {
+      "stage": "POLICY",
+      "step": "REQUIRE_POLICY_PRECHECK",
+      "reason": "the plan has no explicit immutable policy precheck",
+      "unknown_class": "POLICY_PRECHECK_MISSING",
+      "next_operation": "add immutable_policy_precheck before any public mutation",
+      "blocked_by": [
+        "MutationPlan.proposed_operations"
+      ]
+    }
+  ],
+  "violations": [
+    {
+      "kind": "IMMUTABLE_POLICY_DISABLED",
+      "reason": "publication cannot reach FIXED_POINT before immutable releases are enabled"
+    },
+    {
+      "operation_id": "op-counterexample-01",
+      "kind": "release_delete",
+      "reason": "release deletion would erase public history"
+    },
+    {
+      "operation_id": "op-counterexample-02",
+      "kind": "tag_delete",
+      "reason": "tag deletion would erase the public ref"
+    },
+    {
+      "operation_id": "op-counterexample-03",
+      "kind": "same_version_recreate",
+      "reason": "same-version recreation is lineage reuse"
+    },
+    {
+      "operation_id": "op-counterexample-04",
+      "kind": "published_asset_replace",
+      "reason": "published assets are immutable"
+    },
+    {
+      "kind": "SAME_VERSION_REUSE",
+      "reason": "same version cannot be recreated after a public artifact exists"
+    }
+  ],
+  "activities": [
+    {
+      "id": "01-lineage-identity",
+      "meta_name": "BindLineageIdentity",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "02-policy-precheck",
+      "meta_name": "PrecheckImmutablePolicy",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "03-artifact-identity",
+      "meta_name": "BindPublicArtifact",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "04-plan-identity",
+      "meta_name": "BindMutationPlan",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "05-operation-allowlist",
+      "meta_name": "EvaluateProposedOperations",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "06-version-advance",
+      "meta_name": "RequireNextPatchVersion",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "07-draft-first",
+      "meta_name": "RequireDraftFirstRelease",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "08-digest-upload",
+      "meta_name": "RequireExactMainDigest",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "09-failure-preservation",
+      "meta_name": "PreserveOperationalRefuted",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "10-refuted-precedence",
+      "meta_name": "EnforceRefutedPrecedence",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "11-unknown-causality",
+      "meta_name": "PreserveUnknownFields",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    },
+    {
+      "id": "12-authority-zero",
+      "meta_name": "EnforceReadOnlyRuntime",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "REFUTED",
+      "reason": "proposed release mutation is REFUTED; retain public history and advance by patch version"
+    }
+  ],
+  "runtime": {
+    "repository_writes": 0,
+    "local_test_executions": 0,
+    "cross_project_required_gates": 0,
+    "github_mutations": 0,
+    "read_only_snapshot": true,
+    "wall_ms": null,
+    "peak_rss_kib": null
+  },
+  "source": "semantic/release-lineage.gooo",
+  "snapshot": "fixtures/cases/12-refuted-configured-after-publish.json",
+  "lineage": {
+    "repository": "kimjooyoon/gooo-release-lineage-guard",
+    "stream": "public-release",
+    "lineage_id": "lineage-main-public-v1",
+    "current_version": "v0.1.0",
+    "current_tag": "v0.1.0",
+    "current_commit": "1111111111111111111111111111111111111111"
+  },
+  "artifacts": [
+    {
+      "name": "gooo-release-lineage-guard-v0.1.0.tar.gz",
+      "role": "main",
+      "sha256": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+      "main": true,
+      "size": 1333
+    }
+  ]
+}
