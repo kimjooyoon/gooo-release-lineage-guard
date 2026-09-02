@@ -1,0 +1,16 @@
+{
+  "schema": "gooo/release-lineage-guard/fixture/v1",
+  "case_id": "refuted-release-delete",
+  "description": "A proposed release deletion is rejected and must remain as public history.",
+  "plan": {
+    "schema": "gooo/release-lineage-guard/plan/v1",
+    "plan_id": "plan-refuted-release-delete",
+    "lineage": {"repository": "kimjooyoon/gooo-release-lineage-guard", "stream": "public-release", "lineage_id": "lineage-main-public-v1", "current_version": "v0.1.0", "current_tag": "v0.1.0", "current_commit": "1111111111111111111111111111111111111111"},
+    "requested_version": "v0.1.1",
+    "target_commit": "9999999999999999999999999999999999999999",
+    "artifacts": [{"name": "gooo-release-lineage-guard-v0.1.1.tar.gz", "role": "main", "sha256": "sha256:3333333333333333333333333333333333333333333333333333333333333333", "main": true, "size": 1293}],
+    "proposed_operations": [{"id": "op-refuted-delete-01", "kind": "immutable_policy_precheck"}, {"id": "op-refuted-delete-02", "kind": "release_delete", "release_id": "release-v0.1.0", "tag": "v0.1.0"}],
+    "external_claims": []
+  },
+  "snapshot": {"schema": "gooo/release-lineage-guard/remote-snapshot/v1", "repository": "kimjooyoon/gooo-release-lineage-guard", "default_branch": "main", "head_commit": "9999999999999999999999999999999999999999", "immutable_policy": true, "lineage_identity": "lineage-main-public-v1", "inventory_complete": true, "tags": [{"name": "v0.1.0", "object_id": "1111111111111111111111111111111111111111", "annotated": true}], "releases": [{"id": "release-v0.1.0", "tag": "v0.1.0", "version": "v0.1.0", "published": true, "immutable": true, "assets": [{"name": "gooo-release-lineage-guard-v0.1.0.tar.gz", "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "size": 1201}]}], "captured_at": "2026-09-02T00:00:00Z"}
+}

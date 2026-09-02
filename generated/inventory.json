@@ -1,0 +1,144 @@
+{
+  "schema": "gooo/release-lineage-guard/inventory/v1",
+  "root_readme_excluded": true,
+  "directories": 11,
+  "regular_files": 51,
+  "go_files": 9,
+  "go_physical_lines": 857,
+  "gooo_files": 1,
+  "gooo_physical_lines": 106,
+  "generated_artifacts": [
+    {
+      "path": "generated/ci/plan-gate-command.json",
+      "bytes": 662,
+      "digest": "sha256:3cd59d25b04247dce23ba637bdb1ddaa681f3cc96213dc36c3c55acd22d75ded"
+    },
+    {
+      "path": "generated/decisions/closed-annotated-draft.json",
+      "bytes": 4678,
+      "digest": "sha256:0b5f890f0a42bfb2186c26240a8a266e6d3913107dcbd48018cd28ac3f178178"
+    },
+    {
+      "path": "generated/decisions/closed-digest-exact.json",
+      "bytes": 4669,
+      "digest": "sha256:fbb3e0b436a38ed27a498b95ba4d0f95df536bff96729e0dd495f76766db0063"
+    },
+    {
+      "path": "generated/decisions/closed-patch-advance.json",
+      "bytes": 4730,
+      "digest": "sha256:d44831d169577bc99e30eca37baa5b6beb1620b7cbf452fdfc9a1a48f62f31cb"
+    },
+    {
+      "path": "generated/decisions/closed-policy-prechecked.json",
+      "bytes": 4684,
+      "digest": "sha256:693a017e38f17100a375317460d3c8444b8faf6bde007a0e7e4de62179d1ac54"
+    },
+    {
+      "path": "generated/decisions/refuted-configured-after-publish.json",
+      "bytes": 6338,
+      "digest": "sha256:7945cc42a0576943143c4a38d162236e179b9b5ef4ce897d11627830233804a0"
+    },
+    {
+      "path": "generated/decisions/refuted-published-asset-replace.json",
+      "bytes": 5481,
+      "digest": "sha256:104907eb1fd3083f353967c8de3c900cd4ad04ffffa9ab54a94f0a7ec39a79b0"
+    },
+    {
+      "path": "generated/decisions/refuted-release-delete.json",
+      "bytes": 5202,
+      "digest": "sha256:cafef91b25c61056fac4c6c8d4a5415d943de6a5a7ea33751cb058dd11c9ebc2"
+    },
+    {
+      "path": "generated/decisions/refuted-tag-retag.json",
+      "bytes": 5434,
+      "digest": "sha256:93232ef4df42fab1b9f39718c1376d6221511ed702cbb2f6e200241b7aec6d9d"
+    },
+    {
+      "path": "generated/decisions/unknown-external-utility.json",
+      "bytes": 5781,
+      "digest": "sha256:dc1c489f6feddec03bb3183248c3f7afca4bc67ab0d8f56c256a9aed59f650a4"
+    },
+    {
+      "path": "generated/decisions/unknown-lineage-identity-missing.json",
+      "bytes": 5371,
+      "digest": "sha256:efcb28c6056536d6ccedb9c70b0320b88c3174bb4e30078135084c39dbe9dc4b"
+    },
+    {
+      "path": "generated/decisions/unknown-policy-missing.json",
+      "bytes": 5369,
+      "digest": "sha256:2a4bec80d54b1140e666dfaff720808bbcb85491cda9098686650481627d996d"
+    },
+    {
+      "path": "generated/decisions/unknown-remote-snapshot-missing.json",
+      "bytes": 5464,
+      "digest": "sha256:7a386a04d494c4c1896fe2e67eac6526030880e9558a4a5e3ba1406d94611887"
+    },
+    {
+      "path": "generated/dossiers/closed-annotated-draft.md",
+      "bytes": 3205,
+      "digest": "sha256:c2a84ce0b9c119650152ed8dceba7f4db41fc774e4e8ce169abc5dfadd35fff6"
+    },
+    {
+      "path": "generated/dossiers/closed-digest-exact.md",
+      "bytes": 3189,
+      "digest": "sha256:e743fd626589ed8c987477eff48cd3b77dab3884d5d64adba6b25027b379df23"
+    },
+    {
+      "path": "generated/dossiers/closed-patch-advance.md",
+      "bytes": 3194,
+      "digest": "sha256:e22c366125c033e29297dda4ca981fa61aa25d6073443da370e1d0d6894a52ef"
+    },
+    {
+      "path": "generated/dossiers/closed-policy-prechecked.md",
+      "bytes": 3201,
+      "digest": "sha256:9bd9e5682b885ff05a1a11269ceb8ae6597c0419ab84c7887f4cd648f948f9fe"
+    },
+    {
+      "path": "generated/dossiers/refuted-configured-after-publish.md",
+      "bytes": 4500,
+      "digest": "sha256:e3c083fc615f307069b5dbd935402607029d38b76c9740ebcc15e952b32bda6d"
+    },
+    {
+      "path": "generated/dossiers/refuted-published-asset-replace.md",
+      "bytes": 3856,
+      "digest": "sha256:492684e6e0fafeddd7bb34bb54146340a585219c40ad55d153dc66865658d35a"
+    },
+    {
+      "path": "generated/dossiers/refuted-release-delete.md",
+      "bytes": 3665,
+      "digest": "sha256:166cd9cba1a7e502116fc56964a85cbc2924db9f460e082420bcb0d77c92c2a3"
+    },
+    {
+      "path": "generated/dossiers/refuted-tag-retag.md",
+      "bytes": 3800,
+      "digest": "sha256:ea3940a776ce86ba4dd48546d775db2cb89de93a980892d984ecb426a7e43bae"
+    },
+    {
+      "path": "generated/dossiers/unknown-external-utility.md",
+      "bytes": 4125,
+      "digest": "sha256:f5128b3569928db9f90ba04b13da5c612075e3818dcdcac910825d4e9d4ed370"
+    },
+    {
+      "path": "generated/dossiers/unknown-lineage-identity-missing.md",
+      "bytes": 3768,
+      "digest": "sha256:77e28a5077a86a52220bd6d7f831e5944468385a7805213b9356164c15a9493c"
+    },
+    {
+      "path": "generated/dossiers/unknown-policy-missing.md",
+      "bytes": 3799,
+      "digest": "sha256:5ea04a2cf4dc42a3e57cdabaa0081ee65b1a085c9eb6714867b654b3005fa8c5"
+    },
+    {
+      "path": "generated/dossiers/unknown-remote-snapshot-missing.md",
+      "bytes": 3852,
+      "digest": "sha256:d2a6fca46b45f9d5e276dc942d24bcfcc7e0209cf310c3ccca5127f1c8fac09b"
+    },
+    {
+      "path": "generated/manifest.json",
+      "bytes": 2987,
+      "digest": "sha256:0f1c92160b4741c4a17570bf94722c22be4a484304603cedeb463d1c9638224d"
+    }
+  ],
+  "wall_ms": null,
+  "peak_rss_kib": null
+}

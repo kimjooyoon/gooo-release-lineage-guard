@@ -1,0 +1,16 @@
+{
+  "schema": "gooo/release-lineage-guard/fixture/v1",
+  "case_id": "refuted-configured-after-publish",
+  "description": "An anonymized counterexample: a public v0.1.0 release existed before immutable policy was configured, followed by a delete and same-version recreation proposal.",
+  "plan": {
+    "schema": "gooo/release-lineage-guard/plan/v1",
+    "plan_id": "plan-refuted-configured-after-publish",
+    "lineage": {"repository": "kimjooyoon/gooo-release-lineage-guard", "stream": "public-release", "lineage_id": "lineage-main-public-v1", "current_version": "v0.1.0", "current_tag": "v0.1.0", "current_commit": "1111111111111111111111111111111111111111"},
+    "requested_version": "v0.1.0",
+    "target_commit": "cccccccccccccccccccccccccccccccccccccccc",
+    "artifacts": [{"name": "gooo-release-lineage-guard-v0.1.0.tar.gz", "role": "main", "sha256": "sha256:6666666666666666666666666666666666666666666666666666666666666666", "main": true, "size": 1333}],
+    "proposed_operations": [{"id": "op-counterexample-01", "kind": "release_delete", "release_id": "release-v0.1.0", "tag": "v0.1.0"}, {"id": "op-counterexample-02", "kind": "tag_delete", "tag": "v0.1.0"}, {"id": "op-counterexample-03", "kind": "same_version_recreate", "version": "v0.1.0", "release_id": "release-v0.1.0"}, {"id": "op-counterexample-04", "kind": "published_asset_replace", "release_id": "release-v0.1.0", "artifact_name": "gooo-release-lineage-guard-v0.1.0.tar.gz", "digest": "sha256:6666666666666666666666666666666666666666666666666666666666666666"}],
+    "external_claims": []
+  },
+  "snapshot": {"schema": "gooo/release-lineage-guard/remote-snapshot/v1", "repository": "kimjooyoon/gooo-release-lineage-guard", "default_branch": "main", "head_commit": "cccccccccccccccccccccccccccccccccccccccc", "immutable_policy": false, "lineage_identity": "lineage-main-public-v1", "inventory_complete": true, "tags": [{"name": "v0.1.0", "object_id": "1111111111111111111111111111111111111111", "annotated": true}], "releases": [{"id": "release-v0.1.0", "tag": "v0.1.0", "version": "v0.1.0", "published": true, "immutable": false, "assets": [{"name": "gooo-release-lineage-guard-v0.1.0.tar.gz", "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "size": 1201}]}], "captured_at": "2026-09-02T00:00:00Z"}
+}

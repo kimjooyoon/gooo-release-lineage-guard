@@ -1,0 +1,106 @@
+# Gooo Release Lineage Guard semantic authority.
+# The Go implementation parses this file; it does not re-declare the contract.
+program gooo-release-lineage-guard v1
+
+entity ReleaseLineage
+field ReleaseLineage repository identity
+field ReleaseLineage stream identity
+field ReleaseLineage lineage_id identity
+field ReleaseLineage current_version version
+field ReleaseLineage current_tag tag
+field ReleaseLineage current_commit commit
+
+entity PublicArtifact
+field PublicArtifact name identifier
+field PublicArtifact role classification
+field PublicArtifact sha256 digest
+field PublicArtifact main boolean
+field PublicArtifact size bytes
+
+entity MutationPlan
+field MutationPlan schema schema
+field MutationPlan plan_id identifier
+field MutationPlan lineage reference
+field MutationPlan requested_version version
+field MutationPlan target_commit commit
+field MutationPlan artifacts list
+field MutationPlan proposed_operations list
+field MutationPlan external_claims list
+
+entity PreservationRule
+field PreservationRule on_refuted action
+field PreservationRule public_history disposition
+field PreservationRule failed_artifact action
+field PreservationRule never_delete boolean
+
+entity VersionAdvance
+field VersionAdvance from_version version
+field VersionAdvance to_version version
+field VersionAdvance reason rationale
+field VersionAdvance required boolean
+
+entity Decision
+field Decision state state
+field Decision terminal terminal
+field Decision action action
+field Decision reason rationale
+field Decision unknown unknown
+field Decision violations violations
+field Decision activities list
+field Decision preservation_rule rule
+field Decision version_advance advance
+field Decision authority boundary
+
+entity MetaActivity
+field MetaActivity id identifier
+field MetaActivity meta_name name
+field MetaActivity proof proof_family
+field MetaActivity indicator indicator_class
+
+activity 01-lineage-identity meta=BindLineageIdentity proof=FOUNDATION indicator=DRIVER
+activity 02-policy-precheck meta=PrecheckImmutablePolicy proof=FOUNDATION indicator=DRIVER
+activity 03-artifact-identity meta=BindPublicArtifact proof=FOUNDATION indicator=DRIVER
+activity 04-plan-identity meta=BindMutationPlan proof=FOUNDATION indicator=DRIVER
+activity 05-operation-allowlist meta=EvaluateProposedOperations proof=COHERENCE indicator=OUTCOME
+activity 06-version-advance meta=RequireNextPatchVersion proof=COHERENCE indicator=OUTCOME
+activity 07-draft-first meta=RequireDraftFirstRelease proof=COHERENCE indicator=OUTCOME
+activity 08-digest-upload meta=RequireExactMainDigest proof=COHERENCE indicator=OUTCOME
+activity 09-failure-preservation meta=PreserveOperationalRefuted proof=REGRESSION indicator=GUARDRAIL
+activity 10-refuted-precedence meta=EnforceRefutedPrecedence proof=REGRESSION indicator=GUARDRAIL
+activity 11-unknown-causality meta=PreserveUnknownFields proof=REGRESSION indicator=GUARDRAIL
+activity 12-authority-zero meta=EnforceReadOnlyRuntime proof=REGRESSION indicator=GUARDRAIL
+
+allow operation=new_annotated_tag
+allow operation=draft_first_release
+allow operation=immutable_policy_precheck
+allow operation=new_patch_version
+allow operation=exact_main_artifact_digest_upload
+allow operation=publish_draft_release
+allow operation=preserve_failed_artifact
+allow operation=advance_patch_version
+
+forbid operation=release_delete
+forbid operation=tag_delete
+forbid operation=tag_retag
+forbid operation=same_version_recreate
+forbid operation=published_asset_replace
+forbid operation=failed_run_delete
+
+precedence states=REFUTED>UNKNOWN>CLOSED
+terminal value=FIXED_POINT
+unknown fields=stage,step,reason,unknown_class,next_operation,blocked_by
+authority repository_writes=0 local_test_executions=0 cross_project_required_gates=0
+external_evidence utility=UNKNOWN improvement=UNKNOWN
+
+case id=closed-annotated-draft class=CLOSED
+case id=closed-patch-advance class=CLOSED
+case id=closed-digest-exact class=CLOSED
+case id=closed-policy-prechecked class=CLOSED
+case id=unknown-policy-missing class=UNKNOWN
+case id=unknown-remote-snapshot-missing class=UNKNOWN
+case id=unknown-lineage-identity-missing class=UNKNOWN
+case id=unknown-external-utility class=UNKNOWN
+case id=refuted-release-delete class=REFUTED
+case id=refuted-tag-retag class=REFUTED
+case id=refuted-published-asset-replace class=REFUTED
+case id=refuted-configured-after-publish class=REFUTED

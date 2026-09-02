@@ -1,0 +1,16 @@
+{
+  "schema": "gooo/release-lineage-guard/fixture/v1",
+  "case_id": "refuted-published-asset-replace",
+  "description": "A replacement of a published asset is rejected even when the new digest is known.",
+  "plan": {
+    "schema": "gooo/release-lineage-guard/plan/v1",
+    "plan_id": "plan-refuted-published-asset-replace",
+    "lineage": {"repository": "kimjooyoon/gooo-release-lineage-guard", "stream": "public-release", "lineage_id": "lineage-main-public-v1", "current_version": "v0.1.0", "current_tag": "v0.1.0", "current_commit": "1111111111111111111111111111111111111111"},
+    "requested_version": "v0.1.0",
+    "target_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "artifacts": [{"name": "gooo-release-lineage-guard-v0.1.0.tar.gz", "role": "main", "sha256": "sha256:5555555555555555555555555555555555555555555555555555555555555555", "main": true, "size": 1317}],
+    "proposed_operations": [{"id": "op-refuted-asset-01", "kind": "immutable_policy_precheck"}, {"id": "op-refuted-asset-02", "kind": "published_asset_replace", "release_id": "release-v0.1.0", "artifact_name": "gooo-release-lineage-guard-v0.1.0.tar.gz", "digest": "sha256:5555555555555555555555555555555555555555555555555555555555555555"}],
+    "external_claims": []
+  },
+  "snapshot": {"schema": "gooo/release-lineage-guard/remote-snapshot/v1", "repository": "kimjooyoon/gooo-release-lineage-guard", "default_branch": "main", "head_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "immutable_policy": true, "lineage_identity": "lineage-main-public-v1", "inventory_complete": true, "tags": [{"name": "v0.1.0", "object_id": "1111111111111111111111111111111111111111", "annotated": true}], "releases": [{"id": "release-v0.1.0", "tag": "v0.1.0", "version": "v0.1.0", "published": true, "immutable": true, "assets": [{"name": "gooo-release-lineage-guard-v0.1.0.tar.gz", "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "size": 1201}]}], "captured_at": "2026-09-02T00:00:00Z"}
+}

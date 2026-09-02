@@ -1,0 +1,171 @@
+{
+  "schema": "gooo/release-lineage-guard/decision/v1",
+  "case_id": "unknown-external-utility",
+  "plan_id": "plan-unknown-external-utility",
+  "state": "UNKNOWN",
+  "terminal": "FIXED_POINT",
+  "action": "HOLD",
+  "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized",
+  "preservation_rule": {
+    "on_refuted": "retain_failed_public_artifact_as_OPERATIONAL_REFUTED",
+    "public_history": "preserve",
+    "failed_artifact": "retain",
+    "never_delete": true
+  },
+  "version_advance": {
+    "from_version": "",
+    "to_version": "v0.1.0",
+    "reason": "new patch version only",
+    "required": true
+  },
+  "unknown": [
+    {
+      "stage": "EVIDENCE",
+      "step": "READ_EXTERNAL_EVIDENCE",
+      "reason": "external utility evidence is absent",
+      "unknown_class": "EXTERNAL_EVIDENCE_MISSING",
+      "next_operation": "capture source-backed external evidence before making the claim",
+      "blocked_by": [
+        "MutationPlan.external_claims",
+        "MutationPlan.external_evidence"
+      ]
+    },
+    {
+      "stage": "EVIDENCE",
+      "step": "READ_EXTERNAL_EVIDENCE",
+      "reason": "external improvement evidence is absent",
+      "unknown_class": "EXTERNAL_EVIDENCE_MISSING",
+      "next_operation": "capture source-backed external evidence before making the claim",
+      "blocked_by": [
+        "MutationPlan.external_claims",
+        "MutationPlan.external_evidence"
+      ]
+    }
+  ],
+  "activities": [
+    {
+      "id": "01-lineage-identity",
+      "meta_name": "BindLineageIdentity",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "02-policy-precheck",
+      "meta_name": "PrecheckImmutablePolicy",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "03-artifact-identity",
+      "meta_name": "BindPublicArtifact",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "04-plan-identity",
+      "meta_name": "BindMutationPlan",
+      "proof": "FOUNDATION",
+      "indicator": "DRIVER",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "05-operation-allowlist",
+      "meta_name": "EvaluateProposedOperations",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "06-version-advance",
+      "meta_name": "RequireNextPatchVersion",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "07-draft-first",
+      "meta_name": "RequireDraftFirstRelease",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "08-digest-upload",
+      "meta_name": "RequireExactMainDigest",
+      "proof": "COHERENCE",
+      "indicator": "OUTCOME",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "09-failure-preservation",
+      "meta_name": "PreserveOperationalRefuted",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "10-refuted-precedence",
+      "meta_name": "EnforceRefutedPrecedence",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "11-unknown-causality",
+      "meta_name": "PreserveUnknownFields",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    },
+    {
+      "id": "12-authority-zero",
+      "meta_name": "EnforceReadOnlyRuntime",
+      "proof": "REGRESSION",
+      "indicator": "GUARDRAIL",
+      "state": "UNKNOWN",
+      "reason": "required policy, snapshot, lineage, or external evidence is missing; no mutation is authorized"
+    }
+  ],
+  "runtime": {
+    "repository_writes": 0,
+    "local_test_executions": 0,
+    "cross_project_required_gates": 0,
+    "github_mutations": 0,
+    "read_only_snapshot": true,
+    "wall_ms": null,
+    "peak_rss_kib": null
+  },
+  "source": "semantic/release-lineage.gooo",
+  "snapshot": "fixtures/cases/08-unknown-external-utility.json",
+  "lineage": {
+    "repository": "kimjooyoon/gooo-release-lineage-guard",
+    "stream": "public-release",
+    "lineage_id": "lineage-main-public-v1",
+    "current_version": "",
+    "current_tag": "",
+    "current_commit": ""
+  },
+  "artifacts": [
+    {
+      "name": "gooo-release-lineage-guard-v0.1.0.tar.gz",
+      "role": "main",
+      "sha256": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "main": true,
+      "size": 1281
+    }
+  ]
+}
